@@ -1,0 +1,809 @@
+<mvc:View xmlns:uxap="sap.uxap" xmlns:cards="sap.f.cards" controllerName="splitapps.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" xmlns:table="sap.ui.table" xmlns:core="sap.ui.core"
+    xmlns="sap.m" xmlns:form="sap.ui.layout.form">
+
+    <SplitApp id="sapp">
+
+    <masterPages>
+    <Page id="master1">
+
+        <SearchField search="onSearchItem"></SearchField>
+
+        <List id="brandList" items="{dataModel>/cars}" headerText="Car Brands" >
+        <ObjectListItem icon="{dataModel>logo}" title="{dataModel>Company}" type="Navigation" press="selectList">
+        </ObjectListItem>
+        </List>
+
+    </Page>
+
+    <Page id="master2" showNavButton="true" navButtonPress="onPressDetailBack" >
+
+       <List headerText="{dataModel>Company}" >
+
+       <ObjectListItem icon="{dataModel>L1}" title="{dataModel>M1}"  type="Navigation" press="selectCar">
+        <attributes>
+            <ObjectAttribute  text="{= ${dataModel>Max Power (bhp@rpm)1} + '     ' + ${dataModel>Mileage (ARAI)1} }" />
+        </attributes>
+        </ObjectListItem>
+
+        <ObjectListItem icon="{dataModel>L2}" title="{dataModel>M2}"  type="Navigation" press="selectCar1">
+        <attributes>
+            <ObjectAttribute  text="{= ${dataModel>Max Power (bhp@rpm)2} + '     ' + ${dataModel>Mileage (ARAI)2} }" />
+        </attributes>
+        </ObjectListItem>
+
+        <ObjectListItem icon="{dataModel>L3}" title="{dataModel>M3}" type="Navigation" press="selectCar2">
+        <attributes>
+            <ObjectAttribute  text="{= ${dataModel>Max Power (bhp@rpm)3} + '     ' + ${dataModel>Mileage (ARAI)3} }" />
+        </attributes>
+        </ObjectListItem>
+
+        <ObjectListItem icon="{dataModel>L4}" title="{dataModel>M4}"  type="Navigation" press="selectCar3">
+        <attributes>
+            <ObjectAttribute  text="{= ${dataModel>Max Power (bhp@rpm)4} + ' ' + ${dataModel>Mileage (ARAI)4} }" />
+        </attributes>
+        </ObjectListItem>
+
+        <ObjectListItem icon="{dataModel>L5}" title="{dataModel>M5}" type="Navigation" press="selectCar4">
+        <attributes>
+            <ObjectAttribute  text="{= ${dataModel>Max Power (bhp@rpm)5} + '     ' + ${dataModel>Mileage (ARAI)5} }" />
+        </attributes>
+        </ObjectListItem>
+        
+        </List>
+
+    </Page>
+
+    </masterPages>
+
+    <detailPages>
+
+    <Page id="detail1" >
+    <content>
+    	
+    <ObjectHeader  title="{dataModel>M1}" icon="{dataModel>logo}" number="{dataModel>Price1}"
+     class="sapUiResponsivePadding--header" 
+     responsive="true">	
+	</ObjectHeader>
+    <Image src="{dataModel>L1}" width="300px" 
+            height="200px"
+            densityAware="false"
+            decorative="false"
+            class="sapUiSmallMarginTop sapUiLargeMarginBottom"></Image>
+     <Table id="carTable" visible="false">
+                <columns>
+                    <Column>
+                        <Text text="Specification"/>
+                    </Column>
+
+                    <Column>
+                        <Text text="Details"/>
+                    </Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Engine"/>
+                            <Text text="{dataModel>Engine1}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Fuel Type"/>
+                            <Text text="{dataModel>Fuel Type1}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Max Power (bhp@rpm)"/>
+                            <Text text="{dataModel>Max Power (bhp@rpm)1}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Max Torque (Nm@rpm)"/>
+                            <Text text="{dataModel>Max Torque (Nm@rpm)1}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Emission Standard"/>
+                            <Text text="{dataModel>Emission Standard1}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Mileage (ARAI)"/>
+                            <Text text="{dataModel>Mileage (ARAI)1}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Drivetrain"/>
+                            <Text text="{dataModel>Drivetrain1}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Transmission"/>
+                            <Text text="{dataModel>Transmission1}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Seating Capacity"/>
+                            <Text text="{dataModel>Seating Capacity1}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Doors"/>
+                            <Text text="{dataModel>Doors1}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Bootspace"/>
+                            <Text text="{dataModel>Bootspace1}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Fuel Tank Capacity"/>
+                            <Text text="{dataModel>Fuel Tank Capacity1}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="NCAP Rating"/>
+                            <Text text="{dataModel>NCAP Rating1}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Airbags"/>
+                            <Text text="{dataModel>Airbags1}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>      
+    </content>
+
+    <content>
+    	
+    <ObjectHeader  title="{dataModel>M2}" icon="{dataModel>logo}" number="{dataModel>Price2}"
+     class="sapUiResponsivePadding--header" 
+     responsive="true">	
+	</ObjectHeader>
+    <Image src="{dataModel>L2}"></Image>
+     <Table id="t1" visible="false">
+                <columns>
+                    <Column>
+                        <Text text="Specification"/>
+                    </Column>
+
+                    <Column>
+                        <Text text="Details"/>
+                    </Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Engine"/>
+                            <Text text="{dataModel>Engine2}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Fuel Type"/>
+                            <Text text="{dataModel>Fuel Type2}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Max Power (bhp@rpm)"/>
+                            <Text text="{dataModel>Max Power (bhp@rpm)2}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Max Torque (Nm@rpm)"/>
+                            <Text text="{dataModel>Max Torque (Nm@rpm)2}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Emission Standard"/>
+                            <Text text="{dataModel>Emission Standard2}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Mileage (ARAI)"/>
+                            <Text text="{dataModel>Mileage (ARAI)2}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Drivetrain"/>
+                            <Text text="{dataModel>Drivetrain2}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Transmission"/>
+                            <Text text="{dataModel>Transmission2}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Seating Capacity"/>
+                            <Text text="{dataModel>Seating Capacity2}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Doors"/>
+                            <Text text="{dataModel>Doors2}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Bootspace"/>
+                            <Text text="{dataModel>Bootspace2}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Fuel Tank Capacity"/>
+                            <Text text="{dataModel>Fuel Tank Capacity2}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="NCAP Rating"/>
+                            <Text text="{dataModel>NCAP Rating2}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Airbags"/>
+                            <Text text="{dataModel>Airbags2}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>      
+    </content>
+    </Page>
+    </detailPages>
+
+    <detailPages>
+
+    <Page id="detail2" >
+    <content>
+    	
+    <ObjectHeader  title="{dataModel>M2}" icon="{dataModel>logo}" number="{dataModel>Price2}"
+     class="sapUiResponsivePadding--header" 
+     responsive="true">	
+	</ObjectHeader>
+    <Image src="{dataModel>L2}"></Image>
+     <Table id="carTable1" visible="false">
+                <columns>
+                    <Column>
+                        <Text text="Specification"/>
+                    </Column>
+
+                    <Column>
+                        <Text text="Details"/>
+                    </Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Engine"/>
+                            <Text text="{dataModel>Engine2}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Fuel Type"/>
+                            <Text text="{dataModel>Fuel Type2}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Max Power (bhp@rpm)"/>
+                            <Text text="{dataModel>Max Power (bhp@rpm)2}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Max Torque (Nm@rpm)"/>
+                            <Text text="{dataModel>Max Torque (Nm@rpm)2}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Emission Standard"/>
+                            <Text text="{dataModel>Emission Standard2}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Mileage (ARAI)"/>
+                            <Text text="{dataModel>Mileage (ARAI)2}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Drivetrain"/>
+                            <Text text="{dataModel>Drivetrain2}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Transmission"/>
+                            <Text text="{dataModel>Transmission2}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Seating Capacity"/>
+                            <Text text="{dataModel>Seating Capacity2}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Doors"/>
+                            <Text text="{dataModel>Doors2}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Bootspace"/>
+                            <Text text="{dataModel>Bootspace2}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Fuel Tank Capacity"/>
+                            <Text text="{dataModel>Fuel Tank Capacity2}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="NCAP Rating"/>
+                            <Text text="{dataModel>NCAP Rating2}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Airbags"/>
+                            <Text text="{dataModel>Airbags2}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>      
+    </content>
+    </Page>
+    </detailPages>
+
+    <detailPages>
+
+    <Page id="detail3" >
+    <content>
+    	
+    <ObjectHeader  title="{dataModel>M3}" icon="{dataModel>logo}" number="{dataModel>Price3}"
+     class="sapUiResponsivePadding--header" 
+     responsive="true">	
+	</ObjectHeader>
+    <Image src="{dataModel>L3}"></Image>
+     <Table id="carTable2" visible="false">
+                <columns>
+                    <Column>
+                        <Text text="Specification"/>
+                    </Column>
+
+                    <Column>
+                        <Text text="Details"/>
+                    </Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Engine"/>
+                            <Text text="{dataModel>Engine3}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Fuel Type"/>
+                            <Text text="{dataModel>Fuel Type3}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Max Power (bhp@rpm)"/>
+                            <Text text="{dataModel>Max Power (bhp@rpm)3}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Max Torque (Nm@rpm)"/>
+                            <Text text="{dataModel>Max Torque (Nm@rpm)3}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Emission Standard"/>
+                            <Text text="{dataModel>Emission Standard3}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Mileage (ARAI)"/>
+                            <Text text="{dataModel>Mileage (ARAI)3}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Drivetrain"/>
+                            <Text text="{dataModel>Drivetrain3}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Transmission"/>
+                            <Text text="{dataModel>Transmission3}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Seating Capacity"/>
+                            <Text text="{dataModel>Seating Capacity3}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Doors"/>
+                            <Text text="{dataModel>Doors3}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Bootspace"/>
+                            <Text text="{dataModel>Bootspace3}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Fuel Tank Capacity"/>
+                            <Text text="{dataModel>Fuel Tank Capacity3}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="NCAP Rating"/>
+                            <Text text="{dataModel>NCAP Rating3}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Airbags"/>
+                            <Text text="{dataModel>Airbags3}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>      
+    </content>
+    </Page>
+    </detailPages>
+
+    <detailPages>
+
+    <Page id="detail4" >
+    <content>
+    	
+    <ObjectHeader  title="{dataModel>M4}" icon="{dataModel>logo}" number="{dataModel>Price4}"
+     class="sapUiResponsivePadding--header" 
+     responsive="true">	
+	</ObjectHeader>
+    <Image src="{dataModel>L4}"></Image>
+     <Table id="carTable3" visible="false">
+                <columns>
+                    <Column>
+                        <Text text="Specification"/>
+                    </Column>
+
+                    <Column>
+                        <Text text="Details"/>
+                    </Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Engine"/>
+                            <Text text="{dataModel>Engine4}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Fuel Type"/>
+                            <Text text="{dataModel>Fuel Type4}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Max Power (bhp@rpm)"/>
+                            <Text text="{dataModel>Max Power (bhp@rpm)4}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Max Torque (Nm@rpm)"/>
+                            <Text text="{dataModel>Max Torque (Nm@rpm)4}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Emission Standard"/>
+                            <Text text="{dataModel>Emission Standard4}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Mileage (ARAI)"/>
+                            <Text text="{dataModel>Mileage (ARAI)4}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Drivetrain"/>
+                            <Text text="{dataModel>Drivetrain4}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Transmission"/>
+                            <Text text="{dataModel>Transmission4}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Seating Capacity"/>
+                            <Text text="{dataModel>Seating Capacity4}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Doors"/>
+                            <Text text="{dataModel>Doors4}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Bootspace"/>
+                            <Text text="{dataModel>Bootspace4}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Fuel Tank Capacity"/>
+                            <Text text="{dataModel>Fuel Tank Capacity4}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="NCAP Rating"/>
+                            <Text text="{dataModel>NCAP Rating4}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Airbags"/>
+                            <Text text="{dataModel>Airbags4}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>      
+    </content>
+    </Page>
+    </detailPages>
+
+    <detailPages>
+
+    <Page id="detail5" >
+    <content>
+    	
+    <ObjectHeader  title="{dataModel>M5}" icon="{dataModel>logo}" number="{dataModel>Price5}"
+     class="sapUiResponsivePadding--header" 
+     responsive="true">	
+	</ObjectHeader>
+    <Image src="{dataModel>L5}"></Image>
+     <Table id="carTable4" visible="false">
+                <columns>
+                    <Column>
+                        <Text text="Specification"/>
+                    </Column>
+
+                    <Column>
+                        <Text text="Details"/>
+                    </Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Engine"/>
+                            <Text text="{dataModel>Engine5}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Fuel Type"/>
+                            <Text text="{dataModel>Fuel Type5}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Max Power (bhp@rpm)"/>
+                            <Text text="{dataModel>Max Power (bhp@rpm)5}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Max Torque (Nm@rpm)"/>
+                            <Text text="{dataModel>Max Torque (Nm@rpm)5}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Emission Standard"/>
+                            <Text text="{dataModel>Emission Standard5}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Mileage (ARAI)"/>
+                            <Text text="{dataModel>Mileage (ARAI)5}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Drivetrain"/>
+                            <Text text="{dataModel>Drivetrain5}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Transmission"/>
+                            <Text text="{dataModel>Transmission5}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Seating Capacity"/>
+                            <Text text="{dataModel>Seating Capacity5}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Doors"/>
+                            <Text text="{dataModel>Doors5}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Bootspace"/>
+                            <Text text="{dataModel>Bootspace5}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Fuel Tank Capacity"/>
+                            <Text text="{dataModel>Fuel Tank Capacity5}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="NCAP Rating"/>
+                            <Text text="{dataModel>NCAP Rating5}"/>
+                        </cells>
+                    </ColumnListItem>
+
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="Airbags"/>
+                            <Text text="{dataModel>Airbags5}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>      
+    </content>
+    </Page>
+    </detailPages>
+
+    </SplitApp>
+</mvc:View>
