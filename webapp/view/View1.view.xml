@@ -7,7 +7,7 @@
     <masterPages>
     <Page id="master1">
 
-        <SearchField search="onSearchItem"></SearchField>
+        <SearchField search="onSearchItem1"></SearchField>
 
         <List id="brandList" items="{dataModel>/cars}" headerText="Car Brands" >
         <ObjectListItem icon="{dataModel>logo}" title="{dataModel>Company}" type="Navigation" press="selectList">
@@ -18,9 +18,10 @@
 
     <Page id="master2" showNavButton="true" navButtonPress="onPressDetailBack" >
 
+        <SearchField search="onSearchItem2"></SearchField>
        <List headerText="{dataModel>Company}" >
 
-       <ObjectListItem icon="{dataModel>L1}" title="{dataModel>M1}"  type="Navigation" press="selectCar">
+       <ObjectListItem id="c1" icon="{dataModel>L1}" title="{dataModel>M1}"  type="Navigation" press="selectCar">
         <attributes>
             <ObjectAttribute  text="{= ${dataModel>Max Power (bhp@rpm)1} + '     ' + ${dataModel>Mileage (ARAI)1} }" />
         </attributes>
@@ -65,11 +66,7 @@
      class="sapUiResponsivePadding--header" 
      responsive="true">	
 	</ObjectHeader>
-    <Image src="{dataModel>L1}" width="300px" 
-            height="200px"
-            densityAware="false"
-            decorative="false"
-            class="sapUiSmallMarginTop sapUiLargeMarginBottom"></Image>
+    <Image src="{dataModel>L1}"></Image>
      <Table id="carTable" visible="false">
                 <columns>
                     <Column>
@@ -177,126 +174,6 @@
                         <cells>
                             <Text text="Airbags"/>
                             <Text text="{dataModel>Airbags1}"/>
-                        </cells>
-                    </ColumnListItem>
-                </items>
-            </Table>      
-    </content>
-
-    <content>
-    	
-    <ObjectHeader  title="{dataModel>M2}" icon="{dataModel>logo}" number="{dataModel>Price2}"
-     class="sapUiResponsivePadding--header" 
-     responsive="true">	
-	</ObjectHeader>
-    <Image src="{dataModel>L2}"></Image>
-     <Table id="t1" visible="false">
-                <columns>
-                    <Column>
-                        <Text text="Specification"/>
-                    </Column>
-
-                    <Column>
-                        <Text text="Details"/>
-                    </Column>
-                </columns>
-
-                <items>
-                    <ColumnListItem>
-                        <cells>
-                            <Text text="Engine"/>
-                            <Text text="{dataModel>Engine2}"/>
-                        </cells>
-                    </ColumnListItem>
-
-                    <ColumnListItem>
-                        <cells>
-                            <Text text="Fuel Type"/>
-                            <Text text="{dataModel>Fuel Type2}"/>
-                        </cells>
-                    </ColumnListItem>
-
-                    <ColumnListItem>
-                        <cells>
-                            <Text text="Max Power (bhp@rpm)"/>
-                            <Text text="{dataModel>Max Power (bhp@rpm)2}"/>
-                        </cells>
-                    </ColumnListItem>
-
-                    <ColumnListItem>
-                        <cells>
-                            <Text text="Max Torque (Nm@rpm)"/>
-                            <Text text="{dataModel>Max Torque (Nm@rpm)2}"/>
-                        </cells>
-                    </ColumnListItem>
-
-                    <ColumnListItem>
-                        <cells>
-                            <Text text="Emission Standard"/>
-                            <Text text="{dataModel>Emission Standard2}"/>
-                        </cells>
-                    </ColumnListItem>
-
-                    <ColumnListItem>
-                        <cells>
-                            <Text text="Mileage (ARAI)"/>
-                            <Text text="{dataModel>Mileage (ARAI)2}"/>
-                        </cells>
-                    </ColumnListItem>
-
-                    <ColumnListItem>
-                        <cells>
-                            <Text text="Drivetrain"/>
-                            <Text text="{dataModel>Drivetrain2}"/>
-                        </cells>
-                    </ColumnListItem>
-
-                    <ColumnListItem>
-                        <cells>
-                            <Text text="Transmission"/>
-                            <Text text="{dataModel>Transmission2}"/>
-                        </cells>
-                    </ColumnListItem>
-
-                    <ColumnListItem>
-                        <cells>
-                            <Text text="Seating Capacity"/>
-                            <Text text="{dataModel>Seating Capacity2}"/>
-                        </cells>
-                    </ColumnListItem>
-
-                    <ColumnListItem>
-                        <cells>
-                            <Text text="Doors"/>
-                            <Text text="{dataModel>Doors2}"/>
-                        </cells>
-                    </ColumnListItem>
-
-                    <ColumnListItem>
-                        <cells>
-                            <Text text="Bootspace"/>
-                            <Text text="{dataModel>Bootspace2}"/>
-                        </cells>
-                    </ColumnListItem>
-
-                    <ColumnListItem>
-                        <cells>
-                            <Text text="Fuel Tank Capacity"/>
-                            <Text text="{dataModel>Fuel Tank Capacity2}"/>
-                        </cells>
-                    </ColumnListItem>
-
-                    <ColumnListItem>
-                        <cells>
-                            <Text text="NCAP Rating"/>
-                            <Text text="{dataModel>NCAP Rating2}"/>
-                        </cells>
-                    </ColumnListItem>
-
-                    <ColumnListItem>
-                        <cells>
-                            <Text text="Airbags"/>
-                            <Text text="{dataModel>Airbags2}"/>
                         </cells>
                     </ColumnListItem>
                 </items>

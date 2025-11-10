@@ -94,6 +94,35 @@ sap.ui.define([
         onPressDetailBack: function () {
             var oSplitApp = this.byId("sapp");
             oSplitApp.backMaster();
+        },
+
+        onSearchItem1:function(oEvent){
+            var querySelect=oEvent.getParameter("query")
+            var oFilter= new sap.ui.model.Filter("Company",sap.ui.model.FilterOperator.Contains,querySelect)
+            
+            var sFilter=[oFilter]
+            var carList=this.getView().byId("brandList")
+            carList.getBinding("items").filter(sFilter)
+        },
+
+        onSearchItem2:function(oEvent){
+            var querySelect=oEvent.getParameter("query")
+            var oFilter= new sap.ui.model.Filter("M1",sap.ui.model.FilterOperator.Contains,querySelect)
+            var oFilter2= new sap.ui.model.Filter("M2",sap.ui.model.FilterOperator.Contains,querySelect)
+            var oFilter3= new sap.ui.model.Filter("M3",sap.ui.model.FilterOperator.Contains,querySelect)
+            var oFilter4= new sap.ui.model.Filter("M4",sap.ui.model.FilterOperator.Contains,querySelect)
+            var oFilter5= new sap.ui.model.Filter("M5",sap.ui.model.FilterOperator.Contains,querySelect)
+
+            var masterFilter=new sap.ui.model.Filter({
+                filters:[oFilter,oFilter2, oFilter3, oFilter4, oFilter5],
+                and: false
+            })
+            
+            var sFilter=[masterFilter]
+            var car=this.getView().byId("c1")
+            car.getBinding().filter(sFilter)
+
+            debugger
         }
 
 
